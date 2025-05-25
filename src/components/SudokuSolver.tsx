@@ -49,14 +49,14 @@ function generateSudoku() {
   const puzzle: number[][] = [];
   for (let i = 0; i < 9; i++) {
     puzzle.push(
-      raw.slice(i * 9, (i + 1) * 9).map(x => (x === null ? 0 : (x as number) + 1))
+      raw.slice(i * 9, (i + 1) * 9).map((x: number | null) => (x === null ? 0 : (x as number) + 1))
     );
   }
   const solutionRaw = sudoku.solvepuzzle(raw);
   const solution: number[][] = [];
   for (let i = 0; i < 9; i++) {
     solution.push(
-      solutionRaw.slice(i * 9, (i + 1) * 9).map(x => (x === null ? 0 : (x as number) + 1))
+      solutionRaw.slice(i * 9, (i + 1) * 9).map((x: number | null) => (x === null ? 0 : (x as number) + 1))
     );
   }
   return { puzzle, solution };
